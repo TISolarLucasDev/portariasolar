@@ -17,7 +17,8 @@
 </head>
 <body>
   <?php include('navbar.php') ?>
-
+  <?php include('Placas.php') ?>
+  
 </body>      
 
 </html>
