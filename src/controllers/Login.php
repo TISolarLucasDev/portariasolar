@@ -23,10 +23,15 @@ $passwordLogin = $_POST['senha'];
         $_SESSION['password'] = $passwordLogin;
        
         $_SESSION['DbValidation'] = $valide;
-       
 
-         header('Location: home.php');
 
+        // var_dump($_SESSION['DbValidation'] );
+
+        if($_SESSION['DbValidation'][0][3] == "S"){
+          header('Location: home.php');
+        } else {
+           header('Location: login.php'); 
+        }
     
       } catch (Exception $e) {
 

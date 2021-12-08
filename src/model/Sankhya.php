@@ -46,76 +46,75 @@ class Sankhya {
 
 		return $result;
     
-   }    
+    }    
 
 
    function deAutenthicate(){
-    if (isset($this->sessionId) && ($this->sessionId != '') ){
+        if (isset($this->sessionId) && ($this->sessionId != '') ){
         
+            $data = "  {
+                \"serviceName\":\"MobileLoginSP.logout\",
+                \"status\":\"1\",
+                \"pendingPrinting\":\"false\"
+                }";-
 
-        $data = "  {
-            \"serviceName\":\"MobileLoginSP.logout\",
-            \"status\":\"1\",
-            \"pendingPrinting\":\"false\"
-             }";-
+            $url 	= $this->getUrl($this->urlDeAuth);
+            $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
 
-        $url 	= $this->getUrl($this->urlDeAuth);
-        $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
+            $this->sessionId = null;	
 
-        $this->sessionId = null;	
-
+        }
     }
-}
 
 
 
    private function curlExecuteJson($method,$url,$data){
-    $curl = curl_init();
+        $curl = curl_init();
 
-    $cookie = isset($this->sessionId) ? 'Cookie: JSESSIONID='.$this->sessionId : '';
+        $cookie = isset($this->sessionId) ? 'Cookie: JSESSIONID='.$this->sessionId : '';
 
-    curl_setopt_array($curl, [
-        CURLOPT_PORT => $this->port,
-        CURLOPT_URL => $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => $method,
-        CURLOPT_POSTFIELDS => $data,
-        CURLOPT_HTTPHEADER => array("Content-Type: application/json; charset=utf-8",$cookie),
-    ]);
+        curl_setopt_array($curl, [
+            CURLOPT_PORT => $this->port,
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => $method,
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => array("Content-Type: application/json; charset=utf-8",$cookie),
+        ]);
 
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
 
-    curl_close($curl);
+        curl_close($curl);
 
-    return $response;
-}	
+        return $response;
+    }	
 
 
-function consultaQueryJson($sql){
-		
-    $data = "{
-        \"serviceName\" : \"DbExplorerSP.executeQuery\",
-        \"requestBody\" : {
-            \"sql\" : \"$sql\"
-        }
-    }";
+    function consultaQueryJson($sql){
+            
+        $data = "{
+            \"serviceName\" : \"DbExplorerSP.executeQuery\",
+            \"requestBody\" : {
+                \"sql\" : \"$sql\"
+            }
+        }";
 
-    $url = $this->getUrl('/mge/service.sbr?serviceName=DbExplorerSP.executeQuery&outputType=json');
-    
-    $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
-    
-    if(!empty($result['responseBody']['rows'])){
-        return $result['responseBody']['rows'];
-    }else{
-        throw new Exception('Erro ao executar consulta  : '.$result['statusMessage']);
-    } 
+        $url = $this->getUrl('/mge/service.sbr?serviceName=DbExplorerSP.executeQuery&outputType=json');
+        
+        $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
+        
+        if(!empty($result['responseBody']['rows'])){
+            return $result['responseBody']['rows'];
+        }else{
+            throw new Exception('Erro ao executar consulta  : '.$result['statusMessage']);
+        } 
 
-}
+    }
 
 
 }

@@ -47,7 +47,7 @@ if(count($_POST) > 0){
 
 
 
-loadView('Placas' , ['placas' => $placas]);
+loadView('Placas' , ['placas' => $placas ]);
 
 
 ?>
