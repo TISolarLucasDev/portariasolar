@@ -11,6 +11,7 @@ setlocale (LC_TIME, 'pt_BR' , 'pt-BR.utf-8' , 'portugues');
 define('MODEL_PATH' , realpath(dirname(__FILE__) . '/../model'));
 define('VIEW_PATH' , realpath(dirname(__FILE__) . '/../view'));
 define('CONTROLLERS_PATH' , realpath(dirname(__FILE__) . '/../controllers'));
+define('TEMPLATE_PATH', realpath(dirname(__FILE__) . '/../view/templates'));
 
 
 

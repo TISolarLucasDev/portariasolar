@@ -30,7 +30,9 @@ $passwordLogin = $_POST['senha'];
         if($_SESSION['DbValidation'][0][3] == "S"){
           header('Location: home.php');
         } else {
-           header('Location: login.php'); 
+          echo '<div class="alert alert-danger" role="alert">'.
+          '<span id="nomeFuncionario">'.'Usuário sem permissão de acesso!'.'</span>'.
+          '</div>';
         }
     
       } catch (Exception $e) {

@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+body {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 64px 1fr 64px;
+    grid-template-areas: 
+        "header header"
+        "sidebar content"
+        "sidebar footer";
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(226, 226, 226);
+
+    overflow-y: hidden;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+body.hide-sidebar {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "header"
+        "content"
+        "footer";
+}
+
+header.header {
+    grid-area: header;
+    max-width: 100%;
+    display: flex;
+    background-color: #ffffff;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 7px 29px 0px rgba(100, 100, 111, 0.2);
+        
+}
+
+header.header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    flex-basis: 250px;
+    height: 100%;
+}
+
+header.header .logo img{
+    width: 175px;
+}
+
+
+header.header .menu-toggle img{
+    width: 30px;
+    margin-left: 30px;
+}
+
+
+header.header .menu-toggle {
+    color: white;
+    cursor: pointer;
+}
+
+header.header .spacer {
+    flex: 1;
+}
+
+
+header.header .User-info{
+    margin-right: 60px;
+    display:flex;
+    align-items: center;
+}
+
+header.header .User-info img{
+width: 40px;
+}
+
+header.header .User-info h6{
+      margin-top: 10px;
+      margin-left: 3px;
+      text-transform: uppercase;
+    }
+
+aside.sidebar {
+    display: flex;
+    flex-direction: column;
+    grid-area: sidebar;
+    box-shadow: -5px 0px 25px 1px rgba(0, 0, 0, 0.4);
+    background-color: #FFF;
+    width: 100%;
+}
+
+aside.sidebar .menu {
+    width: 100%;
+    flex-grow: 1;
+}
+
+aside.sidebar .menu ul.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside.sidebar .menu li.nav-item {
+    margin: 0;
+    padding: 10px 10px 10px 25px;
+}
+
+aside.sidebar .menu li.nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+aside.sidebar .menu li.nav-item a {
+    font-size: 1.2rem;
+    color: #555;
+    text-decoration: none;
+}
+
+body.hide-sidebar aside.sidebar {
+    display: none;
+}
+
+aside.sidebar .sidebar-widgets {
+    position: sticky;
+    bottom: 50px;
+}
+
+aside.sidebar .sidebar-widget {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+
+}
+
+aside.sidebar .sidebar-widget a {
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.sidebar-widget img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+aside.sidebar .sidebar-widget .icon {
+    font-size: 3.5rem;
+    margin: 2px 10px 2px 0px;
+}
+
+aside.sidebar .sidebar-widget .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.division {
+    widows: 80%;
+    border: solid 1px #EEE;
+}
+
+aside.sidebar .info .main {
+    font-size: 2rem;
+}
+
+.card-1 form{
+   display: flex;
+   flex: 1;
+ 
+}
+
+.card-1 input{
+    width: 90%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding:5px;
+    border-color: rgb(136, 135, 135);
+    border-width: 1px;
+}
+
+.card-1 button{
+    border: 0;
+    margin-left: 10px;
+    background: #FFF;
+}
+
+.card-1 button img {
+    width: 30px;
+}
+
+
+.continer-card .card-item-1 {
+    margin-top: -8px;
+    display: flex;
+    align-items: center;
+}
+
+.continer-card .card-item-1 img{
+    width: 35px;
+}
+
+.continer-card .card-item-1 p {
+    margin-top: 14px;
+    margin-left:5px
+}
+
+
+footer.footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    font-size: 1.2rem;
+    grid-area: footer;
+    background-color: #222;
+    color: #FFF;
+}
+
+.record {
+    font-size: 2.2rem;
+}
+
+.summary-boxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.summary-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.summary-box .icon {
+    font-size: 3.5rem;
+}
+
+.summary-box .title {
+    font-size: 1.5rem;
+}
+
+.summary-box .value {
+    font-size: 2rem;
+}
+
+.disposeConteiner{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+    header.header .logo img {
+        width: 155px;
+    }
+
+    header.header .menu-toggle{
+        margin-right: -10px;
+    }
+
+    header.header   .User-info img{
+        display:none;
+    }
+
+    header.header   .User-info h6{
+        display:none;
+    }
+
+    .footer p {
+        font-size: 12px
+    }
+  }

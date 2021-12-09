@@ -21,6 +21,7 @@ if(count($_POST) > 0){
         $sql = "SELECT * FROM AD_VEICULOSFUNC WHERE PLACA = '{$Placa}' ";
 
         $placas = $sankhya->consultaQueryJson($sql);
+
     
         switch($placas[0][3]){
             case 1:
@@ -37,7 +38,9 @@ if(count($_POST) > 0){
 
     } catch (Exception $e) {
       
-        echo "ERROR :". $e->getMessage();
+        echo '<div class="alert alert-danger" role="alert">'.
+        '<span id="nomeFuncionario">'.'Placa não encontrada!'.'</span>'.
+        '</div>';
 
     }finally {
         $sankhya->deAutenthicate();
@@ -45,9 +48,9 @@ if(count($_POST) > 0){
 
 }
 
-
-
-loadView('Placas' , ['placas' => $placas ]);
-
+loadTemplateView('home' , ['placas' => $placas ]);
+//loadTemplateView('Placas' , ['placas' => $placas ]);
 
 ?>
+
+
