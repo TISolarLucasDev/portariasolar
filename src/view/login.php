@@ -37,7 +37,7 @@
     <title>Portaria Solar</title>
 </head>
 
-<body>
+<body class="hide-sidebar">
 
     <div class="limiter">
         <div class="container-login100">

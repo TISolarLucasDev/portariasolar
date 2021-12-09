@@ -23,7 +23,7 @@
             <img src="/images/Logo.png" alt="Logo">
         </div>
         <div class="menu-toggle">
-        <img src="images/icons/menu.png" alt="menu">
+            <img src="images/icons/menu.png" alt="menu">
         </div>
 
         <div class="spacer"></div>

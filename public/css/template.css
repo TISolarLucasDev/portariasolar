@@ -12,7 +12,7 @@ body {
     margin: 0;
     background-color: rgb(226, 226, 226);
 
-    overflow-y: hidden;
+   
     font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -194,6 +194,13 @@ aside.sidebar .info .main {
     width: 30px;
 }
 
+
+.cards-title  h6{
+     font-weight: 700;
+     font-size: 22px;
+     color: rgb(236, 130, 9);
+     margin-bottom: 15px;
+}
 
 .continer-card .card-item-1 {
     margin-top: -8px;

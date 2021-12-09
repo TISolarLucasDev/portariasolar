@@ -26,6 +26,13 @@
                    Informações
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="logout.php">
+                    <i class="icofont-users mr-2"></i>
+                   Sair
+                </a>
+            </li>
         </ul>
     </nav>
 </aside>
