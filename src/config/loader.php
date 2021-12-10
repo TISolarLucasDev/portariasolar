@@ -35,4 +35,5 @@ function loadTemplateView($viewName, $params = array()) {
     require_once(TEMPLATE_PATH . "/left.php");
     require_once(VIEW_PATH . "/{$viewName}.php");
     require_once(TEMPLATE_PATH . "/footer.php");
+    require_once(CONTROLLERS_PATH . "/garagem.php");
 }

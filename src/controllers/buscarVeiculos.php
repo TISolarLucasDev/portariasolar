@@ -5,6 +5,8 @@ loadModel('Sankhya');
 
 session_start();
 
+$exception = null;
+
 $userLogin =  $_SESSION['login'];
 $userPassword  = $_SESSION['password'];
 
@@ -37,10 +39,7 @@ if(count($_POST) > 0){
 
 
     } catch (Exception $e) {
-      
-        echo '<div class="alert alert-danger" role="alert">'.
-        '<span id="nomeFuncionario">'.'Placa não encontrada!'.'</span>'.
-        '</div>';
+       $exception = 'Erro ao executar a busca';
 
     }finally {
         $sankhya->deAutenthicate();
@@ -48,9 +47,7 @@ if(count($_POST) > 0){
 
 }
 
-loadTemplateView('home' , ['placas' => $placas ]);
-//loadTemplateView('Placas' , ['placas' => $placas ]);
+loadTemplateView('buscarVeiculos' , ['placas' => $placas , 'exception' => $exception]);
 
 ?>
-
 

@@ -1,7 +1,3 @@
-
 <div class="container">
- <?php include(TEMPLATE_PATH . "/cards.php");?>
- <?php
-    
- ?>
+    <h1>Home</h1>
 </div>

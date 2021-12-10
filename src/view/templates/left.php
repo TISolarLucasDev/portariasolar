@@ -15,7 +15,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#">
+                <a href="buscarVeiculos.php">
                     <i class="icofont-chart-histogram mr-2"></i>
                     Buscar veículos
                 </a>

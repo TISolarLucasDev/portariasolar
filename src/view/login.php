@@ -41,12 +41,20 @@
 
     <div class="limiter">
         <div class="container-login100">
+
             <div class="wrap-login100">
                 <form class="login100-form validate-form" action="" method="post">
+
                     <span class="login100-form-title p-b-26">
                         <img src="images/Logo.png"></src>
                     </span>
-                   
+
+                     <?php if($exception) : ?>
+                        <div class="alert alert-danger" role="alert">
+                         <?= $exception ?>
+                        </div>
+                       <?php endif; ?>
+                
                     <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
                         <input class="input100" type="text" name="login">
                         <span class="focus-input100" data-placeholder="Login"></span>
@@ -70,7 +78,7 @@
                     </div>
 
                     <div class="text-center p-t-115">
-
+                
                     </div>
                 </form>
             </div>

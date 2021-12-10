@@ -4,6 +4,7 @@ loadModel('Sankhya');
 
 session_start();
 
+$exception = null;
 
 if(count($_POST) > 0){
 
@@ -30,19 +31,14 @@ $passwordLogin = $_POST['senha'];
         if($_SESSION['DbValidation'][0][3] == "S"){
           header('Location: home.php');
         } else {
-          echo '<div class="alert alert-danger" role="alert">'.
-          '<span id="nomeFuncionario">'.'Usuário sem permissão de acesso!'.'</span>'.
-          '</div>';
+
+          $exception = 'Usuário sem permissão de acesso!';
         }
     
       } catch (Exception $e) {
 
-        echo '<div class="alert alert-danger" role="alert">'.
-        '<span id="nomeFuncionario">'.'Usuário/Senha inválido'.'</span>'.
-        '</div>';
-
-      //echo "Error: " . $e->getMessage();
+        $exception = 'Usuário/Senha inválido!';
     }
 }
 
-loadView('Login');
+loadView('Login' , ['exception' => $exception]);

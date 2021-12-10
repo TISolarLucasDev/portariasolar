@@ -11,10 +11,10 @@ body {
     height: 100vh;
     margin: 0;
     background-color: rgb(226, 226, 226);
-
-   
     font-family: 'Source Sans Pro', sans-serif;
+   
 }
+
 
 
 body.hide-sidebar {
@@ -22,7 +22,8 @@ body.hide-sidebar {
     grid-template-areas: 
         "header"
         "content"
-        "footer";
+        "footer"
+        
 }
 
 header.header {
@@ -168,6 +169,10 @@ aside.sidebar .info .main {
     font-size: 2rem;
 }
 
+.card .card-1{
+    box-shadow: -5px 0px 25px 1px rgba(0, 0, 0, 0.4);
+}
+
 .card-1 form{
    display: flex;
    flex: 1;
@@ -196,10 +201,20 @@ aside.sidebar .info .main {
 
 
 .cards-title  h6{
+     margin-top: 40px;
      font-weight: 700;
      font-size: 22px;
      color: rgb(236, 130, 9);
      margin-bottom: 15px;
+}
+
+.card-info{
+    margin-top: 30px;
+}
+
+.card-info p{
+    color: rgb(156, 156, 156);
+    font-size: 15px;
 }
 
 .continer-card .card-item-1 {
@@ -217,17 +232,16 @@ aside.sidebar .info .main {
     margin-left:5px
 }
 
-
-footer.footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 20px;
-    font-size: 1.2rem;
-    grid-area: footer;
-    background-color: #222;
-    color: #FFF;
+.container_body{
+    margin-top: 40px;
 }
+
+
+.buttonContainer{
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
 
 .record {
     font-size: 2.2rem;
@@ -269,8 +283,13 @@ footer.footer {
 
 @media only screen and (max-width: 600px) {
 
+    body{
+        overflow-x: hidden;
+        height: 123vh;
+    }
+
     header.header .logo img {
-        width: 155px;
+        width: 150px;
     }
 
     header.header .menu-toggle{
@@ -283,6 +302,10 @@ footer.footer {
 
     header.header   .User-info h6{
         display:none;
+    }
+
+    .buttonContainer a{
+       font-size: 14px;
     }
 
     .footer p {
