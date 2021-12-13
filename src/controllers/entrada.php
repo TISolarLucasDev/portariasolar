@@ -5,8 +5,8 @@
 
 
         $exception = null;
-        echo 'Entrada controller';
-        $data = new date();
+        $data = date('Y-m-d H:i:s');
+        // echo 'Entrada controller';
         
         $userLogin =  $_SESSION['login'];
         $userPassword  = $_SESSION['password'];
@@ -19,14 +19,15 @@
                 $sql = "SELECT IDVEICULO FROM AD_VEICULOSFUNC WHERE PLACA = '{$placaEntrada}' ";
                 $resultQuery = $sankhya->consultaQueryJson($sql);
                 $idveiculo = $resultQuery[0][0];
-                $sankhya->insertQueryJson($idveiculo, $data->format('Y-m-d H:i:s'), $codUsu); //  IDVEICULO, DH_ENTRA, CODUSUENT
-                
+                $sankhya->insertQueryJson($idveiculo, $data, $codUsu); //  IDVEICULO, DH_ENTRA, CODUSUENT
+                echo 'try';
             } catch (Exception $e) {
                 
                 $exception = "Erro ao executar a inserção!";
 
             } finally {
                 $sankhya->deAutenthicate();
+                echo 'finally';
             }
     }
 

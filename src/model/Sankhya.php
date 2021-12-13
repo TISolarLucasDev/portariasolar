@@ -147,8 +147,8 @@ class Sankhya {
         $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
         $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
 
-        if(!empty($result['responseBody']['entities'])){
-            return $result['responseBody']['entities'];
+        if(!empty($result['responseBody']['entities']['entity'])){
+            return $result['responseBody']['entities']['entity'];
         }else{
             throw new Exception('Erro ao executar o insert  : '.$result['statusMessage']);
         } 
