@@ -34,33 +34,18 @@
         }
        
 
-        $html .= '<div class="table-responsive-sm">';
-        $html .= '<table class="table table-hover ">';
-        $html .= '<thead class="thead-dark">';
-        $html .= '<tr>';
-        $html .= '<th scope="col">Placa</th>';
-        $html .= '<th scope="col">Colaborador</th>';
-        $html .= '<th scope="col">Veiculo</th>';
-        $html .= '<th scope="col">Entrada</th>';
-        $html .= '<th scope="col">Ações</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-
-        $html .= '<tbody>';
-        foreach($veiculosDentro as $key=>$veiculo){
-
-            $dataE = new DateTime($veiculo[5]);
-        
-            $html .=  '<tr>';
-            $html .=  '<td>'. $veiculo[1] .'</td>';
-            $html .=  '<td>'. $veiculo[2] . '</td>';
-            $html .=  '<td>'. $veiculo[3]. ' - ' . $veiculo[4] .'</td>';
-            $html .=  '<td>'. $dataE->format('d/m/Y H:i:s') .'</td>';
-            $html .=  '<td><button class="btn btn-danger" type=""button">Saida</button></td>';
-            $html .=  '</tr>';
-        }
-       
-        $html .= '</tbody>';
-        $html .= '</table>';
-        $html .= '</div>';
-        echo $html;
+        $cardHtml .= '<div class="cardCountCars">';
+        $cardHtml .= '<div class="card" style="width: 18rem;">';
+        $cardHtml .='<div class="card-body">';
+        $cardHtml .= '<h5 class="card-title-h6">Carros no estacionamento</h5>';
+        $cardHtml .=  '<div class="body-card">';
+        $cardHtml .= '<img src="images/icons/garage.png"></src>';
+        $cardHtml .= '<p class="card-text">'.count($veiculosDentro).'</p>';
+        $cardHtml .= '</div>';
+        $cardHtml .= '<br>';
+        $cardHtml .= '<span class="card-text">'.count($veiculosDentro). ' carros com o acesso autorizado.'.'</span>';
+        $cardHtml .= '</div>';
+        $cardHtml .=  '</div>';
+        $cardHtml .= '</div>';
+    
+       echo  $cardHtml;

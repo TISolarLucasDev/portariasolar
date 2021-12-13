@@ -116,5 +116,42 @@ class Sankhya {
 
     }
 
+    function insertQueryJson($IDVEICULO, $DH_ENT, $CODUSUENT){
+        $data = "{
+            \"serviceName\" : \"CRUDServiceProvider.saveRecord\",
+            \"requestBody\" : {
+                \"dataSet\" : {
+                    \"rootEntity\": \"AD_VEICULOSFUNCGARAGEM\",
+                    \"includePresentationFields\": \"S\",
+                    \"dataRow\": {
+                        \"localFields\": {
+                            \"IDVEICULO\": {
+                                \"$\": \"$IDVEICULO\"
+                            }
+                            \"DH_ENT\": {
+                                \"$\": \"$DH_ENT\"
+                            }
+                            \"CODUSUENT\": {
+                                \"$\": \"$CODUSUENT\"
+                            }
+                        }
+                    }, \"entity\":{
+                        \"fieldset\": {
+                            \"list\": \"IDVEICULO,DH_ENT,CODUSUENT\"
+                        }
+                    }  
+                }
+            }
+        }";
+
+        $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
+        $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
+
+        if(!empty($result['responseBody']['entities'])){
+            return $result['responseBody']['entities'];
+        }else{
+            throw new Exception('Erro ao executar o insert  : '.$result['statusMessage']);
+        } 
+    }
 
 }

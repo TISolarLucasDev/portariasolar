@@ -174,9 +174,8 @@ aside.sidebar .info .main {
 }
 
 .card-1 form{
-   display: flex;
-   flex: 1;
- 
+    display: flex;
+    flex: 1;
 }
 
 .card-1 input{
@@ -189,23 +188,23 @@ aside.sidebar .info .main {
     border-width: 1px;
 }
 
-.card-1 button{
+.card-1 .glass{
     border: 0;
     margin-left: 10px;
     background: #FFF;
 }
 
-.card-1 button img {
+.card-1 .glass img {
     width: 30px;
 }
 
 
 .cards-title  h6{
-     margin-top: 40px;
-     font-weight: 700;
-     font-size: 22px;
-     color: rgb(236, 130, 9);
-     margin-bottom: 15px;
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 22px;
+    color: rgb(236, 130, 9);
+    margin-bottom: 15px;
 }
 
 .card-info{
@@ -241,6 +240,24 @@ aside.sidebar .info .main {
     margin-top: 15px;
     margin-bottom: 12px;
 }
+
+/* .buttonContainer button {
+    background: none;
+} */
+
+
+.table{
+    background-color: White;
+}
+
+#home h6{
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 22px;
+    color: rgb(236, 130, 9);
+    margin-bottom: 15px;
+}
+
 
 
 .record {
@@ -281,6 +298,35 @@ aside.sidebar .info .main {
     display: none;
 }
 
+h5{
+    font-weight: 700;
+    font-size: 22px;
+    color: rgb(236, 130, 9);
+    margin-bottom: 15px;
+}
+
+.body-card{
+    display: flex;
+    align-items: center;
+}
+
+.body-card img{
+    width: 40px;
+    margin-right: 15px;
+}
+
+.body-card p{
+    font-weight: 700;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+}
+
+.cardCountCars span{
+    font-size: 15px;
+    color: rgb(141, 141, 141);
+}
+
+
 @media only screen and (max-width: 600px) {
 
     body{
@@ -303,11 +349,17 @@ aside.sidebar .info .main {
     header.header   .User-info h6{
         display:none;
     }
+    
 
-    .buttonContainer a{
+    .buttonContainer button{
        font-size: 14px;
     }
 
+    .table-responsive-sm {
+        width: 63%;
+    }
+
+    
     .footer p {
         font-size: 12px
     }

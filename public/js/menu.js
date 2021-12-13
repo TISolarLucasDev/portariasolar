@@ -9,11 +9,11 @@ $(".menu-toggle").ready(function() {
     body.classList.toggle('hide-sidebar');
 });
 
+
 $("#home").ready(function() {
-    console.log('Page loaded');
     $("home").load("/buscarGaragem.php");
     $.post("buscarGaragem.php", function(result) {  
-        $("#home").html(result);
+        $("#tablesContainer").html(result);
     
     }).done(function() {
 		console.log( "Sucesso" );
@@ -21,7 +21,26 @@ $("#home").ready(function() {
 		alert('Erro ao Consultar a Garagem');
 		console.log( "error "+textStatus+'-'+error );
 	});	
-
-    
-    // $.get("buscarGaragem.php");
 });
+
+
+$("#home").ready(function() {
+    $("home").load("/cardCountCars.php");
+    $.post("cardCountCars.php", function(result) {  
+        $("#cardContainer").html(result);
+    
+    }).done(function() {
+		console.log( "Sucesso" );
+	}).fail(function( jqxhr, textStatus, error ) {
+		alert('Erro ao Consultar a Garagem');
+		console.log( "error "+textStatus+'-'+error );
+	});	
+});
+
+// $(document).ready(function() {
+//     $("#exampleModalCenter").modal();
+// });
+
+//$('#myModal').on('shown.bs.modal', function() {
+//    $('#myInput').focus();
+//})

@@ -4,6 +4,7 @@
 loadModel('Sankhya');
 
 session_start();
+requireValidSession();
 
 $exception = null;
 
@@ -15,7 +16,6 @@ if(count($_POST) > 0){
     $Placa = $_POST['placa'];
 
     try {
-       
         $sankhya = new Sankhya();
 
         $sankhya->autenthicate($userLogin, $userPassword);

@@ -22,11 +22,9 @@ $passwordLogin = $_POST['senha'];
         
         $_SESSION['login'] = $userLogin ;
         $_SESSION['password'] = $passwordLogin;
-       
+        $_SESSION['codusu'] = $valide[0][0];
+
         $_SESSION['DbValidation'] = $valide;
-
-
-        // var_dump($_SESSION['DbValidation'] );
 
         if($_SESSION['DbValidation'][0][3] == "S"){
           header('Location: home.php');

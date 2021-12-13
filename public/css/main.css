@@ -124,10 +124,10 @@ textarea:-ms-input-placeholder { color: #adadad;}
 
 /*---------------------------------------------*/
 button {
-	outline: none !important;
+ outline: none !important;
 	border: none;
-	background: transparent;
-}
+ background: transparent; 
+} 
 
 button:hover {
 	cursor: pointer;
