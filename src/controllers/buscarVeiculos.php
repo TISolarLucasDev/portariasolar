@@ -30,7 +30,8 @@ if(count($_POST) > 0){
                                 vf.NOME, 
                                 VF.MODELO, 
                                 VF.COR,
-                                format(garagem.DH_ENT, 'yyyy-MM-dd hh:mm:ss') as dataE
+                                format(garagem.DH_ENT, 'yyyy-MM-dd hh:mm:ss') as dataE,
+                                garagem.ID
                                 FROM AD_VEICULOSFUNCGARAGEM garagem 
                                 INNER JOIN AD_VEICULOSFUNC vf on (garagem.IDVEICULO = vf.IDVEICULO) 
                                 WHERE garagem.DH_SAI IS NULL 

@@ -187,7 +187,7 @@ class Sankhya {
             }
         }";
 
-       echo  '<br>',$data,'<br>';
+    //    echo  '<br>',$data,'<br>';
 
         $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
         $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 

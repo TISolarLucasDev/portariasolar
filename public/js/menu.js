@@ -37,6 +37,38 @@ $("#home").ready(function() {
 	});	
 });
 
+ function exibeModalSaida(veiculo,motorista,placa,hora,key)
+ {
+    let myModal = $('#modalSaida');
+
+    let vVeiculo    = $('#veiculo');   
+    let vMotorista  = $('#motorista');   
+    let vPlaca      = $('#placa');   
+    let vHora       = $('#hora');   
+    let vKey        = $('#keysaida');
+
+    vVeiculo.empty();
+    vVeiculo.append(veiculo);
+    vMotorista.empty();
+    vMotorista.append(motorista);
+    vPlaca.empty();
+    vPlaca.append(placa);
+    vHora.empty();
+    vHora.append(hora);
+
+    vKey.val(key);
+    
+    myModal.modal({
+        show: true
+    });
+
+ }
+
+ function abreModal() {
+    $("#myModal").modal({
+         show: true
+       });
+    }
 
 
 // $(document).ready(function() {

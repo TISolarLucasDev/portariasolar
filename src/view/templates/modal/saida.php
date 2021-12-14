@@ -7,16 +7,21 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form action="saida.php" method="post">
-            <div class="modal-body">
-                <label>Placa do veículo: </label>	
-                <input id="placaSaidaModal" type="text" name="placaSaidaModal" value="<?php echo isset($placas[0][1]) ? $placas[0][1] : ''; ?>"  />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        
+        <div class="modal-body">
+            <div>Deseja informar saida do veiculo abaixo?</div>
+            <div>Veiculo : <span id="veiculo"></span></div>
+            <div>Motorista : <span id="motorista"></span></div>
+            <div>Placa : <span id="placa"></span></div>
+            <div>Hora de Entrada: <span id="hora"></span></div>
+        </div>
+        <div class="modal-footer">
+            <form action="saida.php" method="post">
+                <input type="hidden" id="keysaida" type="text" name="key" value="<?php echo isset($placas[0][1]) ? $placas[0][1] : ''; ?>"  />
                 <button type="submit" class="btn btn-danger">Autorizar Saída</button>
-            </div>
-        </form>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </form>
+        </div>
     </div>
     </div>
 </div>

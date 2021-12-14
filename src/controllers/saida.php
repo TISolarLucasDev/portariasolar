@@ -14,18 +14,18 @@
 
     if(count($_POST) > 0){
         
-        $placaSaida = $_POST['placaSaidaModal'];
+        $key = $_POST['key'];
+        //print_r($_POST);
 
         try {
             
             $sankhya = new Sankhya();
             $login = $sankhya->autenthicate($userLogin, $userPassword);
         
-            $sql = "SELECT GARAGEM.ID FROM AD_VEICULOSFUNCGARAGEM GARAGEM INNER JOIN AD_VEICULOSFUNC FUNC on (FUNC.IDVEICULO = GARAGEM.IDVEICULO) WHERE PLACA = '{$placaSaida}' ";
-            $resultQuery = $sankhya->consultaQueryJson($sql);
-            $ID = $resultQuery[0][0];
+            //$sql = "SELECT GARAGEM.ID FROM AD_VEICULOSFUNCGARAGEM GARAGEM INNER JOIN AD_VEICULOSFUNC FUNC on (FUNC.IDVEICULO = GARAGEM.IDVEICULO) WHERE PLACA = '{$placaSaida}' AND DH_SAI IS NULL ORDER BY GARAGEM.ID DESC";
+            //$resultQuery = $sankhya->consultaQueryJson($sql);
 
-            $resultQueryInsertion = $sankhya->insertSaidaQueryJson($ID, $DH_SAI, $CODUSUSAI); //  ID, DH_SAI, CODUSUSAI
+            $resultQueryInsertion = $sankhya->insertSaidaQueryJson($key, $DH_SAI, $CODUSUSAI); //  ID, DH_SAI, CODUSUSAI
 
             $exceptionSuccess = "Saída Autorizada com sucesso!";
 

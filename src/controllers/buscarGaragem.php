@@ -62,6 +62,15 @@
             $html .=  '<td>'. $veiculo[3]. ' - ' . $veiculo[4] .'</td>';
             $html .=  '<td>'. $dataE->format('d/m/Y H:i:s') .'</td>';
             $html .=  '<td>'. $veiculo[7].'</td>';
+
+            $acao1 = 'exibeModalSaida(';
+            $acao1 .= '\''.$veiculo[3]. ' - ' . $veiculo[4].'\',';
+            $acao1 .= '\''.$veiculo[2].'\',';
+            $acao1 .= '\''.$veiculo[1].'\',';
+            $acao1 .= '\''.$dataE->format('d/m/Y H:i:s').'\',';
+            $acao1 .= '\''.$veiculo[6].'\');';
+            
+            $html .=  '<td><button type="button" onclick="'.$acao1.'" class="btn btn-danger">Sair</button></td>';
             $html .=  '<td><button class="btn btn-danger" type=""button" data-toggle="modal" data-target="#modalSaida">Saida</button></td>';
             $html .=  '</tr>';
         }
