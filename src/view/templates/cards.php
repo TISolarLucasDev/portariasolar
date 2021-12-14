@@ -49,8 +49,8 @@
                 <br>
 
                 <div class="buttonContainer">
-                  <button type="button" class="btn btn-success" id="entrar" <?php if(in_array($placas[0][1], $placasVeiculosDentro)) { ?> disabled <?php }; ?> data-toggle="modal" data-target="#modalEntrada"><i class="bi bi-box-arrow-in-left"></i> Autorizar Entrada</button>
-                  <a href="#"  class="btn btn-danger" id="sair"><i class="bi bi-box-arrow-right"></i> Autorizar Saida</a>
+                  <button type="button" class="btn btn-success" id="entrar" data-toggle="modal" data-target="#modalEntrada" <?php if(in_array($placas[0][1], $placasVeiculosDentro)) { ?> disabled <?php }; ?>><i class="bi bi-box-arrow-in-left"></i> Autorizar Entrada</button>
+                  <button type="button" class="btn btn-danger" id="sair" data-toggle="modal" data-target="#modalSaida" <?php if(!in_array($placas[0][1], $placasVeiculosDentro)) { ?> disabled <?php }; ?>><i class="bi bi-box-arrow-right"></i> Autorizar Saida</button>
                 </div>
                 </div>
               </div>

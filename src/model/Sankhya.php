@@ -157,4 +157,46 @@ class Sankhya {
         } 
     }
 
+    function insertSaidaQueryJson($ID, $DH_SAI, $CODUSUSAI){
+        $data = "{
+            \"serviceName\" : \"CRUDServiceProvider.saveRecord\",
+            \"requestBody\" : {
+                \"dataSet\" : {
+                    \"rootEntity\": \"AD_VEICULOSFUNCGARAGEM\",
+                    \"includePresentationFields\": \"S\",
+                    \"dataRow\": {
+                        \"localFields\": {
+                            \"DH_SAI\": {
+                                \"$\": \"$DH_SAI\"
+                            },
+                            \"CODUSUSAI\": {
+                                \"$\": $CODUSUSAI
+                            }
+                        },
+                        \"key\": {
+                            \"ID\": {
+                                \"$\": $ID
+                            }
+                        }
+                    }, \"entity\":{
+                        \"fieldset\": {
+                            \"list\": \"DH_SAI,CODUSUSAI\"
+                        }
+                    }   
+                }
+            }
+        }";
+
+       echo  '<br>',$data,'<br>';
+
+        $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
+        $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
+
+        if(!empty($result['responseBody']['entities']['entity'])){
+            return $result['responseBody']['entities']['entity'];
+        }else{
+            throw new Exception('Erro ao executar o update  : '.$result['statusMessage']);
+        } 
+    }
+
 }

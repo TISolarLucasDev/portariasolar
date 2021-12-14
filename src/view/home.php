@@ -2,10 +2,6 @@
 <div class="container" id="home">
 
 
-<?php 
-    var_dump($veiculosDentro);
-?>
-
 <?php if($exceptionSuccess): ?>
         <div class="alert alert-success mt-5" role="alert">
         <i class="bi bi-check-circle-fill"></i>

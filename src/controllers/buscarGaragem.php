@@ -17,9 +17,12 @@
                             vf.NOME, 
                             VF.MODELO, 
                             VF.COR,
-                            format(garagem.DH_ENT, 'yyyy-MM-dd hh:mm:ss') as dataE
+                            format(garagem.DH_ENT, 'yyyy-MM-dd HH:mm:ss') as dataE,
+                            garagem.ID,
+                            u.NOMEUSU
                             FROM AD_VEICULOSFUNCGARAGEM garagem 
                             INNER JOIN AD_VEICULOSFUNC vf on (garagem.IDVEICULO = vf.IDVEICULO) 
+                            INNER JOIN TSIUSU u on (u.CODUSU = garagem.CODUSUENT)
                             WHERE garagem.DH_SAI IS NULL 
                             ORDER BY garagem.IDVEICULO ASC";
         
@@ -42,6 +45,7 @@
         $html .= '<th scope="col">Colaborador</th>';
         $html .= '<th scope="col">Veiculo</th>';
         $html .= '<th scope="col">Entrada</th>';
+        $html .= '<th scope="col">Autorizador</th>';
         $html .= '<th scope="col">Ações</th>';
         $html .= '</tr>';
         $html .= '</thead>';
@@ -50,13 +54,15 @@
         foreach($veiculosDentro as $key=>$veiculo){
 
             $dataE = new DateTime($veiculo[5]);
+           // echo($veiculo[5]);
         
             $html .=  '<tr>';
             $html .=  '<td>'. $veiculo[1] .'</td>';
             $html .=  '<td>'. $veiculo[2] . '</td>';
             $html .=  '<td>'. $veiculo[3]. ' - ' . $veiculo[4] .'</td>';
             $html .=  '<td>'. $dataE->format('d/m/Y H:i:s') .'</td>';
-            $html .=  '<td><button class="btn btn-danger" type=""button">Saida</button></td>';
+            $html .=  '<td>'. $veiculo[7].'</td>';
+            $html .=  '<td><button class="btn btn-danger" type=""button" data-toggle="modal" data-target="#modalSaida">Saida</button></td>';
             $html .=  '</tr>';
         }
 

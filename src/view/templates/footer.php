@@ -5,6 +5,7 @@ integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRk
 crossorigin="anonymous"></script> -->
 <?php
     include('modal/entrada.php');
+    include('modal/saida.php');
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/menu.js"></script>
