@@ -37,6 +37,8 @@ $("#home").ready(function() {
 	});	
 });
 
+
+
 // $(document).ready(function() {
 //     $("#exampleModalCenter").modal();
 // });

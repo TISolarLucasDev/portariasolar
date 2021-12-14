@@ -34,8 +34,8 @@
         }
        
 
-        $html .= '<div class="table-responsive-sm">';
-        $html .= '<table class="table table-hover ">';
+        $html .= '<div style="width:100%; height:350px; overflow:auto; ">';
+        $html .= '<table class="table overflow-scroll-gradient" cellspacing="0" cellpadding="1" width="300">';
         $html .= '<thead class="thead-dark">';
         $html .= '<tr>';
         $html .= '<th scope="col">Placa</th>';
@@ -46,7 +46,7 @@
         $html .= '</tr>';
         $html .= '</thead>';
 
-        $html .= '<tbody>';
+        $html .= '<tbody class="table-body">';
         foreach($veiculosDentro as $key=>$veiculo){
 
             $dataE = new DateTime($veiculo[5]);
@@ -59,8 +59,10 @@
             $html .=  '<td><button class="btn btn-danger" type=""button">Saida</button></td>';
             $html .=  '</tr>';
         }
-       
+
         $html .= '</tbody>';
         $html .= '</table>';
         $html .= '</div>';
+        
         echo $html;
+

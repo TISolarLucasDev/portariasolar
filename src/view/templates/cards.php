@@ -6,10 +6,20 @@
           <input type="text" name="placa" id="inputPlacas" placeholder="Digite a placa para a pesquisa" value="<?= isset($placas[0][1]) ? $placas[0][1] : ''?>">
           <button class="glass"><img draggable="false" src="images/icons/search.png" alt="Buscar"></button>
         </form>
+<?php
+  // echo 'deu até aqui';
+  // var_dump($veiculosDentro);
+  $placasVeiculosDentro = [];
+  // var_dump($placasVeiculosDentro);
+  for($i = 0; $i < count($veiculosDentro); $i++ ){
+    array_push($placasVeiculosDentro, $veiculosDentro[$i][1]);
+  }
+  // var_dump($placasVeiculosDentro);
 
+?>
         <div class="cards-title">
           <h6>Informações do veículo</h6>
-          
+
           <?php if($placas):?>
             
             <div class="continer-card ">
@@ -39,7 +49,7 @@
                 <br>
 
                 <div class="buttonContainer">
-                  <button type="button" class="btn btn-success" id="entrar" data-toggle="modal" data-target="#modalEntrada" ><i class="bi bi-box-arrow-in-left"></i> Autorizar Entrada</button>
+                  <button type="button" class="btn btn-success" id="entrar" <?php if(in_array($placas[0][1], $placasVeiculosDentro)) { ?> disabled <?php }; ?> data-toggle="modal" data-target="#modalEntrada"><i class="bi bi-box-arrow-in-left"></i> Autorizar Entrada</button>
                   <a href="#"  class="btn btn-danger" id="sair"><i class="bi bi-box-arrow-right"></i> Autorizar Saida</a>
                 </div>
                 </div>
@@ -52,8 +62,6 @@
               </div>
             <?php endif; ?>
             
-
-
           </div>
       </div>
       </div>

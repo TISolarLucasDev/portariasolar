@@ -56,9 +56,9 @@ class Sankhya {
                 \"serviceName\":\"MobileLoginSP.logout\",
                 \"status\":\"1\",
                 \"pendingPrinting\":\"false\"
-                }";-
+                }";
 
-            $url 	= $this->getUrl($this->urlDeAuth);
+            $url  = $this->getUrl($this->urlDeAuth);
             $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
 
             $this->sessionId = null;	
@@ -126,13 +126,13 @@ class Sankhya {
                     \"dataRow\": {
                         \"localFields\": {
                             \"IDVEICULO\": {
-                                \"$\": \"$IDVEICULO\"
-                            }
+                                \"$\": $IDVEICULO
+                            },
                             \"DH_ENT\": {
                                 \"$\": \"$DH_ENT\"
-                            }
+                            },
                             \"CODUSUENT\": {
-                                \"$\": \"$CODUSUENT\"
+                                \"$\": $CODUSUENT
                             }
                         }
                     }, \"entity\":{
@@ -144,7 +144,10 @@ class Sankhya {
             }
         }";
 
+       // echo  '<br>',$data,'<br>';
+
         $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
+       
         $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
 
         if(!empty($result['responseBody']['entities']['entity'])){

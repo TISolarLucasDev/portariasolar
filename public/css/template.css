@@ -10,11 +10,41 @@ body {
         "sidebar footer";
     height: 100vh;
     margin: 0;
-    background-color: rgb(226, 226, 226);
+    background: rgb(236, 236, 236);
     font-family: 'Source Sans Pro', sans-serif;
-   
+
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  
+  /* Overflow scroll gradient */
+  
+  .overflow-scroll-gradient {
+    position: relative;
+  }
+  
+  .overflow-scroll-gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 240px;
+    height: 25px;
+    background: linear-gradient( rgba(255, 255, 255, 0.001), white);
+    pointer-events: none;
+  }
 
 
 body.hide-sidebar {
@@ -246,9 +276,6 @@ aside.sidebar .info .main {
 } */
 
 
-.table{
-    background-color: White;
-}
 
 #home h6{
     margin-top: 40px;
@@ -326,6 +353,10 @@ h5{
     color: rgb(141, 141, 141);
 }
 
+table {
+    background: #fff;
+}
+
 
 @media only screen and (max-width: 600px) {
 
@@ -353,10 +384,6 @@ h5{
 
     .buttonContainer button{
        font-size: 14px;
-    }
-
-    .table-responsive-sm {
-        width: 63%;
     }
 
     
