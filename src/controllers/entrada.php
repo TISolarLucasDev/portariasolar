@@ -8,9 +8,7 @@
         $exception = null;
         $DH_ENT = date('d/m/Y H:i:s');
 
-      
-      
-        
+
         $userLogin =  $_SESSION['login'];
         $userPassword  = $_SESSION['password'];
         $CODUSUENT = $_SESSION['codusu'];

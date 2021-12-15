@@ -15,18 +15,25 @@
                     Acesso estacionamento
                 </a>
             </li>
-           
+
+            <li class="nav-item">
+                <a href="Fornecedor.php" >
+                    <i class="icofont-ui-check mr-2"></i>
+                    Fornecedores
+                </a>
+            </li>
+        
             <li class="nav-item">
                 <a href="buscarVeiculos.php">
                     <i class="icofont-chart-histogram mr-2"></i>
                     Buscar veículos
                 </a>
             </li>
-         
+        
             <li class="nav-item">
                 <a href="logout.php">
                     <i class="icofont-users mr-2"></i>
-                   Sair
+                    Sair
                 </a>
             </li>
         </ul>

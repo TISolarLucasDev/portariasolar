@@ -1,4 +1,3 @@
-
 $(".menu-toggle").click(function() {
     const body = document.querySelector('body');
     body.classList.toggle('hide-sidebar');
@@ -37,38 +36,90 @@ $("#home").ready(function() {
 	});	
 });
 
+
+// $("#FornecedorContainer").ready(function() {
+//     $("#FornecedorContainer").load("/exibirVeiculosCadastrados.php");
+//     $.post("exibirVeiculosCadastrados.php", function(result) {  
+//         $("#FornecedorContainer").html(result);
+    
+//     }).done(function() {
+// 		console.log( "Sucesso" );
+// 	}).fail(function( jqxhr, textStatus, error ) {
+// 		alert('Erro ao Consultar a veiculos cadastrados');
+// 		console.log( "error "+textStatus+'-'+error );
+// 	});	
+// });
+
+
  function exibeModalSaida(veiculo,motorista,placa,hora,key)
  {
-    let myModal = $('#modalSaida');
-
-    let vVeiculo    = $('#veiculo');   
-    let vMotorista  = $('#motorista');   
-    let vPlaca      = $('#placa');   
-    let vHora       = $('#hora');   
+    let modalSaida  = $('#modalSaida');
+    let modalHtml   = $('#modalSaidaHtml');
     let vKey        = $('#keysaida');
+    let html;
+    
+    modalHtml.empty();
 
-    vVeiculo.empty();
-    vVeiculo.append(veiculo);
-    vMotorista.empty();
-    vMotorista.append(motorista);
-    vPlaca.empty();
-    vPlaca.append(placa);
-    vHora.empty();
-    vHora.append(hora);
+
+    html =  '<div>Veiculo : '+ veiculo +' </div>';
+    html += '<div>Motorista :  '+ motorista +' </div>';
+    html += '<div>Placa :  '+ placa +' </div>';
+    html += '<div>Hora de Entrada:'+ hora + '</div>';
+
+    modalHtml.append(html);
 
     vKey.val(key);
     
-    myModal.modal({
+    modalSaida.modal({
         show: true
     });
+}
 
- }
 
- function abreModal() {
-    $("#myModal").modal({
-         show: true
-       });
-    }
+// $("#addFornecedor").on('click' , function(){
+//     $('#modalCadastro').modal({
+//         show: true
+//     });
+// });
+
+function exibeModalCadastro(id = null, placa = '', nome = '', modelo = '', cor = '', setor = '', estacionamento = '', fornecedor = ''){
+    let refKey = $('#keyEditar');
+    let refPlaca = $('#placaEditar');
+    let refNome = $('#nomeEditar');
+    let refModelo = $('#modeloEditar');
+    let refCor = $('#corEditar');
+    let refSetor = $('#setorEditar');
+    let refCheckGaragem = $('#checkGaragemEditar');
+    let refCheckFornecedor = $('#checkFornecedorEditar');
+
+    refKey.empty();
+    refKey.val(id);
+
+    refPlaca.empty();
+    refPlaca.val(placa);
+
+    refNome.empty();
+    refNome.val(nome);
+
+    refModelo.empty();
+    refModelo.val(modelo);
+
+    refCor.empty();
+    refCor.val(cor);
+
+    refSetor.empty();
+    refSetor.val(setor);
+
+    refCheckGaragem.empty();
+    refCheckGaragem.val(estacionamento);
+
+    refCheckFornecedor.empty();
+    refCheckFornecedor.val(fornecedor);
+    
+    $('#modalCadastro').modal({
+        show: true
+    });
+}
 
 
 // $(document).ready(function() {

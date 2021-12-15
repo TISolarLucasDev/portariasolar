@@ -199,4 +199,80 @@ class Sankhya {
         } 
     }
 
+
+    function insertEditVeiculoJson(
+    $Placa,     
+    $Nome,       
+    $Acesso,    
+    $Modelo,    
+    $Cor,       
+    $Fornece, 
+    $Dcrsetor,
+    $key=null
+    ){
+    
+        $objKey = '';
+    
+        if(!empty($key)){
+          $objKey = "
+         ,
+            \"key\": {
+             \"IDVEICULO\": {
+                \"$\":\"".$key."\"
+              }
+           }
+         ";
+       }
+   
+        $data = "{
+            \"serviceName\" : \"CRUDServiceProvider.saveRecord\",
+            \"requestBody\" : {
+                \"dataSet\" : {
+                    \"rootEntity\": \"AD_VEICULOSFUNC\",
+                    \"includePresentationFields\": \"S\",
+                    \"dataRow\": {
+                        \"localFields\": {
+                            \"PLACA\": {
+                                \"$\": \"$Placa\"
+                            },
+                            \"NOME\": {
+                                \"$\": \"$Nome\"
+                            },
+                            \"GARAGEM\": {
+                                \"$\": \"$Acesso\"
+                            },
+                            \"MODELO\": {
+                                \"$\": \"$Modelo\"
+                            },
+                            \"COR\": {
+                                \"$\": \"$Cor\"
+                            },
+                            \"FORNECEDOR\": {
+                                \"$\": \"$Fornece\"
+                            },
+                            \"DCRSETOR\": {
+                                \"$\": \"$Dcrsetor\"
+                            }
+                        }
+                        $objKey
+                    }, \"entity\":{
+                        \"fieldset\": {
+                            \"list\": \"PLACA,NOME,GARAGEM,MODELO,COR,FORNECEDOR,DCRSETOR\"
+                        }
+                    }   
+                }
+            }
+        }";
+
+        // echo $data;
+        $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
+        $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
+
+        if(!empty($result['responseBody']['entities']['entity'])){
+            return $result['responseBody']['entities']['entity'];
+        }else{
+            throw new Exception('Erro ao executar o update  : '.$result['statusMessage']);
+        } 
+    }
+
 }

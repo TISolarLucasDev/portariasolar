@@ -32,12 +32,12 @@
                   <div class="card-item-1">
                     <img draggable="false" src="/images/icons/2_user.png" alt="colaborador">
                     <p><?=  isset($placas[0][2]) ? "{$placas[0][2]}  - " : 'Colaborador' ?></p>
-                    <p><?= isset($placas[0][3]) ? $placas[0][3] : 'Departamento'?></p>
+                    <p><?= isset($placas[0][7]) ? $placas[0][7] : 'Departamento'?></p>
                   </div>
                   <div class="card-item-1">
                     <img draggable="false" src="/images/icons/car.png" alt="placa">
-                    <p><?= isset($placas[0][5]) ? "{$placas[0][5]}  - " : ' Informações do veículo' ?></p>
-                    <p><?= isset($placas[0][6]) ? $placas[0][6] : '' ?></p>
+                    <p><?= isset($placas[0][4]) ? "{$placas[0][4]}  - " : ' Informações do veículo' ?></p>
+                    <p><?= isset($placas[0][5]) ? $placas[0][5] : '' ?></p>
                   </div>
                 </div>
                 <div class="col-md-6">

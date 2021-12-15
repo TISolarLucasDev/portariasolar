@@ -24,7 +24,6 @@ if(count($_POST) > 0){
 
         $placas = $sankhya->consultaQueryJson($sql);
 
-
         $sqlEstacionamento =    "SELECT  garagem.IDVEICULO, 
                                 vf.PLACA, 
                                 vf.NOME, 

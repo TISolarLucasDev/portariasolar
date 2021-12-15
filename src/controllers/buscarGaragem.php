@@ -71,7 +71,6 @@
             $acao1 .= '\''.$veiculo[6].'\');';
             
             $html .=  '<td><button type="button" onclick="'.$acao1.'" class="btn btn-danger">Sair</button></td>';
-            $html .=  '<td><button class="btn btn-danger" type=""button" data-toggle="modal" data-target="#modalSaida">Saida</button></td>';
             $html .=  '</tr>';
         }
 
