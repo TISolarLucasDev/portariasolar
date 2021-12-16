@@ -18,7 +18,7 @@
                         DCRSETOR,
                         GARAGEM,
                         FORNECEDOR
-                        FROM AD_VEICULOSFUNC WHERE FORNECEDOR = 'S'";
+                        FROM AD_VEICULOSFUNC"; //  WHERE FORNECEDOR = 'S'"
         $veiculosCadastrados = $sankhya->consultaQueryJson($sql);
        
         } catch (Exception $e) {
@@ -49,8 +49,8 @@
         $html .=    '<td>'. $veiculo[1].'</td>';
         $html .=    '<td>'. $veiculo[2]. '</td>';
         $html .=    '<td  class="veiculo">'. $veiculo[3]. ' - ' . $veiculo[4] .'</td>';
-        $html .=    '<td>'. $veiculo[6].'</td>';
-        $html .=    '<td>'. $veiculo[7].'</td>';
+        $html .=    '<td>'. (isset($veiculo[6]) ?  'Sim' : 'Não').'</td>';
+        $html .=    '<td>'. (isset($veiculo[7]) ?  'Sim' : 'Não').'</td>';
 
         $acao1 =    'exibeModalCadastro(';
         $acao1 .=   '\''.$veiculo[0].'\',';   //IDVEICULO

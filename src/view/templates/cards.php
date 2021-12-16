@@ -7,15 +7,20 @@
           <button class="glass"><img draggable="false" src="images/icons/search.png" alt="Buscar"></button>
         </form>
 <?php
-  // echo 'deu até aqui';
-  // var_dump($veiculosDentro);
   $placasVeiculosDentro = [];
-  // var_dump($placasVeiculosDentro);
+  $veiculoBuscado = [];
   for($i = 0; $i < count($veiculosDentro); $i++ ){
     array_push($placasVeiculosDentro, $veiculosDentro[$i][1]);
+    if($placas[0][1] == $veiculosDentro[$i][1]){
+      array_push($veiculoBuscado, $veiculosDentro[$i]);
+    }
   }
-  // var_dump($placasVeiculosDentro);
-
+  $acaoModalSaida = ''; 
+  $acaoModalSaida .= '\'' . $veiculoBuscado[0][3] . ' - ' . $veiculoBuscado[0][4]. '\''. ',';
+  $acaoModalSaida .= '\'' . $veiculoBuscado[0][2] . '\''. ',';
+  $acaoModalSaida .= '\'' . $veiculoBuscado[0][1] . '\''. ',';
+  $acaoModalSaida .= '\'' . $veiculoBuscado[0][5] . '\''. ',';
+  $acaoModalSaida .= '\'' . $veiculoBuscado[0][6] . '\'';
 ?>
         <div class="cards-title">
           <h6>Informações do veículo</h6>
@@ -44,12 +49,12 @@
                     <img draggable="false" src="<?= isset($placas[0][3]) == "S" ? '/images/icons/ok.png' : '/images/icons/cancel.png' ?>" alt="Acesso ao estacionamento?">
                     <p><?= isset($placas[0][3]) == "S" ? 'Acesso permitido ao estacionamento' : ' Acesso não permitido ao estacionamento' ?></p>
                 </div>
-                  
+                
                 <br>
 
                 <div class="buttonContainer">
                   <button type="button" class="btn btn-success" id="entrar" data-toggle="modal" data-target="#modalEntrada" <?php if(in_array($placas[0][1], $placasVeiculosDentro)) { ?> disabled <?php }; ?>><i class="bi bi-box-arrow-in-left"></i> Autorizar Entrada</button>
-                  <button type="button" class="btn btn-danger" id="sair" data-toggle="modal" data-target="#modalSaida" <?php if(!in_array($placas[0][1], $placasVeiculosDentro)) { ?> disabled <?php }; ?>><i class="bi bi-box-arrow-right"></i> Autorizar Saida</button>
+                  <button type="button" class="btn btn-danger" id="sair" onclick="exibeModalSaida(<?php echo $acaoModalSaida ?>)" <?php if(!in_array($placas[0][1], $placasVeiculosDentro)) { ?> disabled <?php }; ?>><i class="bi bi-box-arrow-right"></i> Autorizar Saida</button>
                 </div>
                 </div>
               </div>

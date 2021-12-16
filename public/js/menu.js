@@ -52,15 +52,14 @@ $("#home").ready(function() {
 // });
 
 
- function exibeModalSaida(veiculo,motorista,placa,hora,key)
- {
+function exibeModalSaida(veiculo,motorista,placa,hora,key)
+{
     let modalSaida  = $('#modalSaida');
     let modalHtml   = $('#modalSaidaHtml');
     let vKey        = $('#keysaida');
     let html;
-    
-    modalHtml.empty();
 
+    modalHtml.empty();
 
     html =  '<div>Veiculo : '+ veiculo +' </div>';
     html += '<div>Motorista :  '+ motorista +' </div>';

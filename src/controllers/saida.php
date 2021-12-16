@@ -14,8 +14,6 @@
     if(count($_POST) > 0){
         
     $key = $_POST['key'];
-       
-
     try {
             
         $sankhya = new Sankhya();
