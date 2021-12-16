@@ -2,7 +2,7 @@
 
 
 class Sankhya {
-
+    
     private $lastAuth;
 	public 	$sessionId;
 	public 	$protocol 			= 'http://';
@@ -38,18 +38,12 @@ class Sankhya {
 
         $url = $this->getUrl($this->urlAuth);
         $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
-
-           
         $this->sessionId = $result['responseBody']['jsessionid']['$'];
-       
-
-
 		return $result;
-    
     }    
 
 
-   function deAutenthicate(){
+    function deAutenthicate(){
         if (isset($this->sessionId) && ($this->sessionId != '') ){
         
             $data = "  {
@@ -60,9 +54,7 @@ class Sankhya {
 
             $url  = $this->getUrl($this->urlDeAuth);
             $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
-
             $this->sessionId = null;	
-
         }
     }
 
@@ -70,7 +62,6 @@ class Sankhya {
 
    private function curlExecuteJson($method,$url,$data){
         $curl = curl_init();
-
         $cookie = isset($this->sessionId) ? 'Cookie: JSESSIONID='.$this->sessionId : '';
 
         curl_setopt_array($curl, [
@@ -88,9 +79,7 @@ class Sankhya {
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
-
         curl_close($curl);
-
         return $response;
     }	
 
@@ -105,9 +94,7 @@ class Sankhya {
         }";
 
         $url = $this->getUrl('/mge/service.sbr?serviceName=DbExplorerSP.executeQuery&outputType=json');
-        
         $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
-        
         if(!empty($result['responseBody']['rows'])){
             return $result['responseBody']['rows'];
         }else{
@@ -144,12 +131,9 @@ class Sankhya {
             }
         }";
 
-       // echo  '<br>',$data,'<br>';
 
         $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
-       
         $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
-
         if(!empty($result['responseBody']['entities']['entity'])){
             return $result['responseBody']['entities']['entity'];
         }else{
@@ -187,11 +171,8 @@ class Sankhya {
             }
         }";
 
-    //    echo  '<br>',$data,'<br>';
-
         $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
         $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
-
         if(!empty($result['responseBody']['entities']['entity'])){
             return $result['responseBody']['entities']['entity'];
         }else{
@@ -200,30 +181,21 @@ class Sankhya {
     }
 
 
-    function insertEditVeiculoJson(
-    $Placa,     
-    $Nome,       
-    $Acesso,    
-    $Modelo,    
-    $Cor,       
-    $Fornece, 
-    $Dcrsetor,
-    $key=null
-    ){
-    
+    function insertEditVeiculoJson($Placa,$Nome,$Acesso,$Modelo,$Cor,$Fornece,$Dcrsetor,$key=null){
+
         $objKey = '';
-    
+
         if(!empty($key)){
-          $objKey = "
-         ,
-            \"key\": {
-             \"IDVEICULO\": {
-                \"$\":\"".$key."\"
-              }
-           }
-         ";
-       }
-   
+            $objKey = "
+            ,
+                \"key\": {
+                \"IDVEICULO\": {
+                    \"$\":\"".$key."\"
+                }
+            }
+            ";
+        }
+
         $data = "{
             \"serviceName\" : \"CRUDServiceProvider.saveRecord\",
             \"requestBody\" : {
@@ -267,7 +239,6 @@ class Sankhya {
         // echo $data;
         $url = $this->getUrl('/mge/service.sbr?serviceName=CRUDServiceProvider.saveRecord&outputType=json');
         $result = json_decode($this->curlExecuteJson("POST",$url, $data),true); 
-
         if(!empty($result['responseBody']['entities']['entity'])){
             return $result['responseBody']['entities']['entity'];
         }else{

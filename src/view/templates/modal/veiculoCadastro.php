@@ -11,19 +11,19 @@
         <div class="modal-body">
           <div class="form-row">
             <div class="col">
-                  <input type="text" class="form-control" placeholder="Placa do veiculo" id="placaEditar" name="placa">
+                  <input type="text" class="form-control" placeholder="Placa do veiculo" id="placaEditar" name="placa" required>
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Colaborador" id="nomeEditar" name="nome">
+                <input type="text" class="form-control" placeholder="Colaborador" id="nomeEditar" name="nome" required>
             </div>
           </div>
 
           <div class="form-row mt-3">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Modelo do veiculo" id="modeloEditar" name="modelo">
+              <input type="text" class="form-control" placeholder="Modelo do veiculo" id="modeloEditar" name="modelo" required>
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Cor do veiculo" id="corEditar" name="cor">
+              <input type="text" class="form-control" placeholder="Cor do veiculo" id="corEditar" name="cor" required>
             </div>
           </div>
 

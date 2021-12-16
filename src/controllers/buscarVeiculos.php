@@ -1,30 +1,26 @@
-
 <?php
 
-loadModel('Sankhya');
+    loadModel('Sankhya');
 
-session_start();
-requireValidSession();
+    session_start();
+    requireValidSession();
 
-$exception = null;
+    $exception = null;
 
-$userLogin =  $_SESSION['login'];
-$userPassword  = $_SESSION['password'];
+    $userLogin =  $_SESSION['login'];
+    $userPassword  = $_SESSION['password'];
 
-if(count($_POST) > 0){
+    if(count($_POST) > 0){
 
     $Placa = $_POST['placa'];
 
     try {
-        $sankhya = new Sankhya();
-
-        $sankhya->autenthicate($userLogin, $userPassword);
     
-        $sql = "SELECT * FROM AD_VEICULOSFUNC WHERE PLACA = '{$Placa}' ";
-
-        $placas = $sankhya->consultaQueryJson($sql);
-
-        $sqlEstacionamento =    "SELECT  garagem.IDVEICULO, 
+    $sankhya = new Sankhya();
+    $sankhya->autenthicate($userLogin, $userPassword);
+    $sql = "SELECT * FROM AD_VEICULOSFUNC WHERE PLACA = '{$Placa}' ";
+    $placas = $sankhya->consultaQueryJson($sql);
+    $sqlEstacionamento =    "SELECT  garagem.IDVEICULO, 
                                 vf.PLACA, 
                                 vf.NOME, 
                                 VF.MODELO, 
@@ -35,20 +31,19 @@ if(count($_POST) > 0){
                                 INNER JOIN AD_VEICULOSFUNC vf on (garagem.IDVEICULO = vf.IDVEICULO) 
                                 WHERE garagem.DH_SAI IS NULL 
                                 ORDER BY garagem.IDVEICULO ASC";
-        $veiculosDentro = $sankhya->consultaQueryJson($sqlEstacionamento);
+    $veiculosDentro = $sankhya->consultaQueryJson($sqlEstacionamento);
 
-
-        switch($placas[0][3]){
-            case 1:
-                $placas[0][3] =  "Tecnologia";
-                break;
-            case 2:
-                $placas[0][3] =  "Compras";
-                break;
-            case 3:
+    switch($placas[0][3]){
+        case 1:
+            $placas[0][3] =  "Tecnologia";
+            break;
+         case 2:
+            $placas[0][3] =  "Compras";
+            break;
+         case 3:
                 $placas[0][3] =  "RH";
-                break;    
-        }
+            break;    
+    }
 
 
     } catch (Exception $e) {
@@ -60,7 +55,7 @@ if(count($_POST) > 0){
 
 }
 
-loadTemplateView('buscarVeiculos' , ['placas' => $placas , 'exception' => $exception , 'dataEntrada' => $dataEntrada, 'veiculosDentro' => $veiculosDentro]);
+    loadTemplateView('buscarVeiculos' , ['placas' => $placas , 'exception' => $exception , 'dataEntrada' => $dataEntrada, 'veiculosDentro' => $veiculosDentro]);
 
 ?>
 

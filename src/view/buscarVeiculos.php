@@ -11,7 +11,7 @@
       <?php if($exception): ?>
          <div class="alert alert-danger" role="alert">
             <i class="bi bi-x-circle-fill"></i>
-            <?php $exception ?>
+            <?php echo $exception ?>
          </div>
       <?php elseif (!$placas) : ?>
          <div class="alert alert-warning" role="alert">

@@ -11,7 +11,7 @@
 
     <div class="card mt-5">
         <div class="card-body">
-            <h5 class="card-title mb-4">Ações</h5>
+            <h5 class="card-title mb-4">Painel de ações</h5>
             <button type="button" onclick="exibeModalCadastro()" id="addFornecedor" class="btn btn-success mr-2">Adicionar Fornecedor</button>
         </div>
     </div>

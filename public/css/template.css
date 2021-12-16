@@ -104,8 +104,19 @@ header.header .User-info{
     align-items: center;
 }
 
+header.header .User-info .image_Backgound{
+    background: -webkit-linear-gradient(left, rgb(255, 166, 0) , rgb(255, 238, 0)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, rgb(255, 166, 0) , rgb(255, 238, 0)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, rgb(255, 166, 0) , rgb(255, 238, 0)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, rgb(255, 166, 0) , rgb(255, 238, 0)); /* 标准的语法（必须放在最后） */
+
+    border-radius: 100%;
+    width: 50px;
+}
+
 header.header .User-info img{
-width: 40px;
+width: 50px;
+
 }
 
 header.header .User-info h6{
@@ -362,7 +373,7 @@ table {
 
     body{
         overflow-x: hidden;
-        height: 123vh;
+        height: 100vh;
     }
 
     header.header .logo img {
@@ -370,7 +381,7 @@ table {
     }
 
     header.header .menu-toggle{
-        margin-right: -10px;
+        margin-left: 80px;
     }
 
     header.header   .User-info img{
@@ -386,6 +397,30 @@ table {
        font-size: 14px;
     }
 
+    .autorizador{
+        display: none;
+    }
+
+    .veiculo{
+        display: none;
+    }
+
+    table{
+        font-size: 15px;
+    }
+
+    table td{
+        width: 100%;
+    }
+
+    .table .thead-dark th{
+        font-size: 12px;
+    }
+
+
+    .card{
+    width: 60%;
+    }
     
     .footer p {
         font-size: 12px

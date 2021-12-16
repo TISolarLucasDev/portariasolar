@@ -31,7 +31,9 @@
         <div class="spacer"></div>
 
         <div class="User-info">
-           <img draggable="false" src="images/icons/2_user.png" alt="User">
+           <div class="image_Backgound">
+           <img draggable="false" src="images/apple-con.png" alt="User">
+           </div>
             <h6><?=$_SESSION['login'] ?></h6>
         </div>
     </header>

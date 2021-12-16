@@ -37,6 +37,7 @@ $("#home").ready(function() {
 });
 
 
+
 // $("#FornecedorContainer").ready(function() {
 //     $("#FornecedorContainer").load("/exibirVeiculosCadastrados.php");
 //     $.post("exibirVeiculosCadastrados.php", function(result) {  

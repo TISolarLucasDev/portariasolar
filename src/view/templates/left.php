@@ -10,13 +10,6 @@
             </li>
 
             <li class="nav-item">
-                <a href="#">
-                    <i class="icofont-ui-check mr-2"></i>
-                    Acesso estacionamento
-                </a>
-            </li>
-
-            <li class="nav-item">
                 <a href="Fornecedor.php" >
                     <i class="icofont-ui-check mr-2"></i>
                     Fornecedores

@@ -31,8 +31,7 @@
                   </div>
                   <div class="card-item-1">
                     <img draggable="false" src="/images/icons/2_user.png" alt="colaborador">
-                    <p><?=  isset($placas[0][2]) ? "{$placas[0][2]}  - " : 'Colaborador' ?></p>
-                    <p><?= isset($placas[0][7]) ? $placas[0][7] : 'Departamento'?></p>
+                    <p><?=  isset($placas[0][2]) ? "{$placas[0][2]} " : 'Colaborador' ?></p>
                   </div>
                   <div class="card-item-1">
                     <img draggable="false" src="/images/icons/car.png" alt="placa">

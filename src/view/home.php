@@ -1,9 +1,9 @@
 <div class="container" id="home">
 
-<?php if($exceptionSuccess): ?>
+<?php if($exception): ?>
         <div class="alert alert-success mt-5" role="alert">
         <i class="bi bi-check-circle-fill"></i>
-           <?= $exceptionSuccess ?>
+           <?= $exception ?>
           </div>
 <?php elseif ($exception) : ?>
         <div class="alert alert-danger mt-5" role="alert">
