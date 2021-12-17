@@ -7,21 +7,21 @@
                         value="<?= isset($placas[0][1]) ? $placas[0][1] : ''?>">
                     <button class="glass"><img draggable="false" src="images/icons/search.png" alt="Buscar"></button>
                 </form>
-                <?php
-  $placasVeiculosDentro = [];
-  $veiculoBuscado = [];
-  for($i = 0; $i < count($veiculosDentro); $i++ ){
-    array_push($placasVeiculosDentro, $veiculosDentro[$i][1]);
-    if($placas[0][1] == $veiculosDentro[$i][1]){
-      array_push($veiculoBuscado, $veiculosDentro[$i]);
-    }
-  }
-  $acaoModalSaida = ''; 
-  $acaoModalSaida .= '\'' . $veiculoBuscado[0][3] . ' - ' . $veiculoBuscado[0][4]. '\''. ',';
-  $acaoModalSaida .= '\'' . $veiculoBuscado[0][2] . '\''. ',';
-  $acaoModalSaida .= '\'' . $veiculoBuscado[0][1] . '\''. ',';
-  $acaoModalSaida .= '\'' . $veiculoBuscado[0][5] . '\''. ',';
-  $acaoModalSaida .= '\'' . $veiculoBuscado[0][6] . '\'';
+    <?php
+        $placasVeiculosDentro = [];
+        $veiculoBuscado = [];
+        for($i = 0; $i < count($veiculosDentro); $i++ ){
+            array_push($placasVeiculosDentro, $veiculosDentro[$i][1]);
+            if($placas[0][1] == $veiculosDentro[$i][1]){
+                array_push($veiculoBuscado, $veiculosDentro[$i]);
+            }
+        }
+        $acaoModalSaida = ''; 
+        $acaoModalSaida .= '\'' . $veiculoBuscado[0][3] . ' - ' . $veiculoBuscado[0][4]. '\''. ',';
+        $acaoModalSaida .= '\'' . $veiculoBuscado[0][2] . '\''. ',';
+        $acaoModalSaida .= '\'' . $veiculoBuscado[0][1] . '\''. ',';
+        $acaoModalSaida .= '\'' . $veiculoBuscado[0][5] . '\''. ',';
+        $acaoModalSaida .= '\'' . $veiculoBuscado[0][6] . '\'';
 ?>
                 <div class="cards-title">
                     <h6>Informações do veículo</h6>

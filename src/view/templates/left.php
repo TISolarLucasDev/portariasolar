@@ -24,6 +24,13 @@
             </li>
 
             <li class="nav-item">
+                <a href="checklist.php">
+                    <i class="icofont-chart-histogram mr-2"></i>
+                    Checklist
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a href="logout.php">
                     <i class="icofont-users mr-2"></i>
                     Sair
