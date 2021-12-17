@@ -37,12 +37,12 @@
                         <img src="images/Logo.png"></src>
                     </span>
 
-                     <?php if($exception) : ?>
-                        <div class="alert alert-danger" role="alert">
-                         <?= $exception ?>
-                        </div>
-                       <?php endif; ?>
-                
+                    <?php if($exception) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= $exception ?>
+                    </div>
+                    <?php endif; ?>
+
                     <div class="wrap-input100 validate-input" data-validate="Login inválido">
                         <input class="input100" type="text" name="login">
                         <span class="focus-input100" data-placeholder="Login"></span>
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="text-center p-t-115">
-                
+
                     </div>
                 </form>
             </div>

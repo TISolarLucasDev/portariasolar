@@ -18,4 +18,3 @@ define('TEMPLATE_PATH', realpath(dirname(__FILE__) . '/../view/templates'));
 
 require_once(realpath(dirname(__FILE__) . '/loader.php'));
 require_once(realpath(dirname(__FILE__) . '/session.php'));
-

@@ -7,11 +7,11 @@
         
             $userLogin =  $_SESSION['login'];
             $userPassword  = $_SESSION['password'];
-       
+
             try {
             $sankhya = new Sankhya();
             $sankhya->autenthicate($userLogin, $userPassword);
-           
+        
             $sql = "SELECT  garagem.IDVEICULO, 
                             vf.PLACA, 
                             vf.NOME, 
@@ -29,24 +29,31 @@
             $veiculosDentro = $sankhya->consultaQueryJson($sql);
         
             } catch (Exception $e) {
-      
+            
             $exception = "Erro ao executar a busca!";
 
             } finally {
             $sankhya->deAutenthicate();
             }
-       
 
-            $html .= '<div style="width:100%; height:350px; overflow:auto; ">';
-            $html .= '<table class="table overflow-scroll-gradient" cellspacing="0" cellpadding="1" width="300">';
+            $html .= '<div style="height:350px; ">';
+            $html .= '<table class="table table-condensed" id="tabelaEstacionamento">';
             $html .= '<thead class="thead-dark">';
             $html .= '<tr>';
             $html .= '<th scope="col">Placa</th>';
-            $html .= '<th scope="col">Colaborador</th>';
-            $html .= '<th scope="col" class="veiculo">Veiculo</th>';
-            $html .= '<th scope="col">Entrada</th>';
-            $html .= '<th scope="col" class="autorizador">Autorizador</th>';
-            $html .= '<th scope="col">Ações</th>';
+            $html .= '<th class="testeTB ">Colaborador</th>';
+            $html .= '<th class="veiculo ">Veiculo</th>';
+            $html .= '<th class="testeTB ">Entrada</th>';
+            $html .= '<th class="autorizador ">Autorizador</th>';
+            $html .= '<th class="testeTB ">Ações</th>';
+            $html .= '</tr>';
+            $html .= '<tr>';
+            $html .= '<th class="testeTB"></th>';
+            $html .= '<th class="testeTB"></th>';
+            $html .= '<th class="veiculo"></th>';
+            $html .= '<th class="testeTB"></th>';
+            $html .= '<th class="autorizador"></th>';
+            $html .= '<th class="testeTB"></th>';
             $html .= '</tr>';
             $html .= '</thead>';
 
@@ -54,13 +61,13 @@
             foreach($veiculosDentro as $key=>$veiculo){
 
             $dataE = new DateTime($veiculo[5]);
-         
+        
             $html .=  '<tr>';
             $html .=  '<td class="placa">'. $veiculo[1] .'</td>';
-            $html .=  '<td class="colaborador">'. $veiculo[2] . '</td>';
-            $html .=  '<td class="veiculo">'. $veiculo[3]. ' - ' . $veiculo[4] .'</td>';
-            $html .=  '<td class="entrada">'. $dataE->format('d/m/Y H:i:s') .'</td>';
-            $html .=  '<td class="autorizador">'. $veiculo[7].'</td>';
+            $html .=  '<td class="colaborador testeTB">'. $veiculo[2] . '</td>';
+            $html .=  '<td class="veiculo testeTB">'. $veiculo[3]. ' - ' . $veiculo[4] .'</td>';
+            $html .=  '<td class="entrada testeTB">'. $dataE->format('d/m/Y H:i:s') .'</td>';
+            $html .=  '<td class="autorizador testeTB">'. $veiculo[7].'</td>';
 
             $acao1 = 'exibeModalSaida(';
             $acao1 .= '\''.$veiculo[3]. ' - ' . $veiculo[4].'\',';
@@ -78,4 +85,3 @@
             $html .= '</div>';
             
             echo $html;
-

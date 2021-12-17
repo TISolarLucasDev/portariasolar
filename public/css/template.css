@@ -1,42 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: 64px 1fr 64px;
-    grid-template-areas: 
-        "header header"
-        "sidebar content"
-        "sidebar footer";
+    grid-template-areas: "header header" "sidebar content" "sidebar footer";
     height: 100vh;
-    margin: 0;
     background: rgb(236, 236, 236);
     font-family: 'Source Sans Pro', sans-serif;
-
 }
 
 ::-webkit-scrollbar {
     width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
+}
+
+ ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+ ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-  }
-  
-  
-  /* Overflow scroll gradient */
-  
-  .overflow-scroll-gradient {
+}
+
+
+/* Overflow scroll gradient */
+
+.overflow-scroll-gradient {
     position: relative;
-  }
-  
-  .overflow-scroll-gradient::after {
+}
+
+.overflow-scroll-gradient::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -44,16 +44,11 @@ body {
     height: 25px;
     background: linear-gradient( rgba(255, 255, 255, 0.001), white);
     pointer-events: none;
-  }
-
+}
 
 body.hide-sidebar {
     grid-template-columns: 1fr;
-    grid-template-areas: 
-        "header"
-        "content"
-        "footer"
-        
+    grid-template-areas: "header" "content" "footer"
 }
 
 header.header {
@@ -64,7 +59,6 @@ header.header {
     align-items: center;
     z-index: 10;
     box-shadow: 0 7px 29px 0px rgba(100, 100, 111, 0.2);
-        
 }
 
 header.header .logo {
@@ -77,16 +71,14 @@ header.header .logo {
     height: 100%;
 }
 
-header.header .logo img{
+header.header .logo img {
     width: 175px;
 }
 
-
-header.header .menu-toggle img{
+header.header .menu-toggle img {
     width: 30px;
     margin-left: 30px;
 }
-
 
 header.header .menu-toggle {
     color: white;
@@ -97,33 +89,34 @@ header.header .spacer {
     flex: 1;
 }
 
-
-header.header .User-info{
+header.header .User-info {
     margin-right: 60px;
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
-header.header .User-info .image_Backgound{
-    background: -webkit-linear-gradient(left, rgb(255, 166, 0) , rgb(255, 238, 0)); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, rgb(255, 166, 0) , rgb(255, 238, 0)); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, rgb(255, 166, 0) , rgb(255, 238, 0)); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, rgb(255, 166, 0) , rgb(255, 238, 0)); /* 标准的语法（必须放在最后） */
-
+header.header .User-info .image_Backgound {
+    background: -webkit-linear-gradient(left, rgb(255, 166, 0), rgb(255, 238, 0));
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, rgb(255, 166, 0), rgb(255, 238, 0));
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, rgb(255, 166, 0), rgb(255, 238, 0));
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, rgb(255, 166, 0), rgb(255, 238, 0));
+    /* 标准的语法（必须放在最后） */
     border-radius: 100%;
     width: 50px;
 }
 
-header.header .User-info img{
-width: 50px;
-
+header.header .User-info img {
+    width: 50px;
 }
 
-header.header .User-info h6{
-      margin-top: 10px;
-      margin-left: 3px;
-      text-transform: uppercase;
-    }
+header.header .User-info h6 {
+    margin-top: 10px;
+    margin-left: 3px;
+    text-transform: uppercase;
+}
 
 aside.sidebar {
     display: flex;
@@ -154,7 +147,6 @@ aside.sidebar .menu li.nav-item:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-
 aside.sidebar .menu li.nav-item a {
     font-size: 1.2rem;
     color: #555;
@@ -174,7 +166,6 @@ aside.sidebar .sidebar-widget {
     display: flex;
     align-items: center;
     margin-left: 40px;
-
 }
 
 aside.sidebar .sidebar-widget a {
@@ -184,7 +175,7 @@ aside.sidebar .sidebar-widget a {
     color: #555;
 }
 
-.sidebar-widget img{
+.sidebar-widget img {
     width: 30px;
     margin-right: 10px;
 }
@@ -210,26 +201,26 @@ aside.sidebar .info .main {
     font-size: 2rem;
 }
 
-.card .card-1{
+.card .card-1 {
     box-shadow: -5px 0px 25px 1px rgba(0, 0, 0, 0.4);
 }
 
-.card-1 form{
+.card-1 form {
     display: flex;
     flex: 1;
 }
 
-.card-1 input{
+.card-1 input {
     width: 90%;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    padding:5px;
+    padding: 5px;
     border-color: rgb(136, 135, 135);
     border-width: 1px;
 }
 
-.card-1 .glass{
+.card-1 .glass {
     border: 0;
     margin-left: 10px;
     background: #FFF;
@@ -239,8 +230,7 @@ aside.sidebar .info .main {
     width: 30px;
 }
 
-
-.cards-title  h6{
+.cards-title h6 {
     margin-top: 40px;
     font-weight: 700;
     font-size: 22px;
@@ -248,11 +238,11 @@ aside.sidebar .info .main {
     margin-bottom: 15px;
 }
 
-.card-info{
+.card-info {
     margin-top: 30px;
 }
 
-.card-info p{
+.card-info p {
     color: rgb(156, 156, 156);
     font-size: 15px;
 }
@@ -263,40 +253,36 @@ aside.sidebar .info .main {
     align-items: center;
 }
 
-.continer-card .card-item-1 img{
+.continer-card .card-item-1 img {
     width: 35px;
 }
 
 .continer-card .card-item-1 p {
     margin-top: 14px;
-    margin-left:5px
+    margin-left: 5px
 }
 
-.container_body{
+.container_body {
     margin-top: 40px;
 }
 
-
-.buttonContainer{
+.buttonContainer {
     margin-top: 15px;
     margin-bottom: 12px;
 }
+
 
 /* .buttonContainer button {
     background: none;
 } */
 
-
-
-#home h6{
+#home h6 {
     margin-top: 40px;
     font-weight: 700;
     font-size: 22px;
     color: rgb(236, 130, 9);
     margin-bottom: 15px;
 }
-
-
 
 .record {
     font-size: 2.2rem;
@@ -332,97 +318,118 @@ aside.sidebar .info .main {
     font-size: 2rem;
 }
 
-.disposeConteiner{
+.disposeConteiner {
     display: none;
 }
 
-h5{
+h5 {
     font-weight: 700;
     font-size: 22px;
     color: rgb(236, 130, 9);
     margin-bottom: 15px;
 }
 
-.body-card{
+.body-card {
     display: flex;
     align-items: center;
 }
 
-.body-card img{
+.body-card img {
     width: 40px;
     margin-right: 15px;
 }
 
-.body-card p{
+.body-card p {
     font-weight: 700;
     font-size: 25px;
     color: rgb(0, 0, 0);
 }
 
-.cardCountCars span{
+.cardCountCars span {
     font-size: 15px;
     color: rgb(141, 141, 141);
 }
 
 table {
     background: #fff;
+    width: 96%;
 }
 
+.containerInputSearch {
+    display: flex;
+    align-items: center;
+}
+
+.containerInputSearch input {
+    display: flex;
+    flex: 1;
+    margin-left: 15px;
+    margin-top: 20px;
+    height: 40px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background: transparent;
+    border-bottom: rgba(136, 136, 136, 0.534) 1px solid;
+}
+
+.bi.bi-search {
+    font-size: 22px;
+    color: rgba(105, 105, 105, 0.699);
+}
+
+@media only screen and (max-width: 380px) {}
 
 @media only screen and (max-width: 600px) {
-
-    body{
+    body {
         overflow-x: hidden;
         height: 100vh;
     }
-
     header.header .logo img {
         width: 150px;
     }
-
-    header.header .menu-toggle{
-        margin-left: 80px;
+    .container {
+        padding-right: 2px;
+        padding-left: 2px;
     }
-
-    header.header   .User-info img{
-        display:none;
-    }
-
-    header.header   .User-info h6{
-        display:none;
-    }
-    
-
-    .buttonContainer button{
-       font-size: 14px;
-    }
-
-    .autorizador{
+    header.header .User-info img {
         display: none;
     }
-
-    .veiculo{
+    header.header .User-info h6 {
         display: none;
     }
-
-    table{
+    .buttonContainer button {
+        font-size: 14px;
+    }
+    .autorizador {
+        display: none;
+    }
+    .veiculo {
+        display: none;
+    }
+    .table {
         font-size: 15px;
+        width: 80%;
     }
-
-    table td{
+    table td {
         width: 100%;
     }
-
-    .table .thead-dark th{
+    .container_body {
+        padding: 5px;
+    }
+    .table .thead-dark th {
         font-size: 12px;
     }
-
-
-    .card{
-    width: 60%;
+    #cardContainer {
+        margin-left: 15px;
     }
-    
+    #home h6 {
+        font-size: 18px;
+    }
+    .card-1 {
+        width: 98%;
+    }
     .footer p {
         font-size: 12px
     }
-  }
+}

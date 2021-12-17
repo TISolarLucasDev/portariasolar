@@ -58,4 +58,3 @@
     loadTemplateView('buscarVeiculos' , ['placas' => $placas , 'exception' => $exception , 'dataEntrada' => $dataEntrada, 'veiculosDentro' => $veiculosDentro]);
 
 ?>
-
